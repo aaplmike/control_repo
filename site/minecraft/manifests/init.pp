@@ -6,7 +6,7 @@ class minecraft {
     ensure => file,
     source => 'https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar',
   }
-  package { 'java':
+  package {'java':
     ensure present,
   }
   file {'/opt/minecraft/eula.txt':
@@ -16,5 +16,9 @@ class minecraft {
   source {'/etc/systemd/system/minecraft.servie':
     ensure => file,
     source => 'puppet:///modules/minecraft/minecraft.service',
+  }
+  service {'minecraft':
+    ensure => running,
+    enable => true,
   }
 }
