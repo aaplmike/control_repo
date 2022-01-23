@@ -1,3 +1,3 @@
 # control_repo
 
-This is a change.
+Puppet env for Learning Puppet series.
